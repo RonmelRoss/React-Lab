@@ -1,16 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const myelement = (
-  <ul>
-    <li>Apples</li>
-    <li>Bananas</li>
-    <li>Cherries</li>
-    <li>This is an expression: {10+10}</li>
-  </ul>
-);
+class Car extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            brand: "Ford",
+            model: "Mustang",
+            color: "red",
+            year: 1964
+        };
+    }
 
-//const secondElement = <input type="text" />;
+    changeColor = () => {
+        this.setState({color:"black"});
+    }
 
-ReactDOM.render(myelement, document.getElementById('root'));
-//ReactDOM.render(secondElement, document.getElementById('input-value'));
+    render() {
+        return (<div>
+            <h1>My {this.state.brand}</h1>
+            <p>
+                It is a {this.state.color} {this.state.model} from
+                {this.state.year}.
+            </p>
+            <input type="button" value="Change color" onClick={this.changeColor} />
+        </div>
+        );
+    }
+}
+
+ReactDOM.render(<Car />, document.getElementById('root'));

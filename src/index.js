@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './App.css';
+import myformstyle from './myform.module.css';
 
 class MyForm extends React.Component {
     constructor(props){
@@ -42,6 +44,13 @@ class MyForm extends React.Component {
         } else {
             header = '';
         }
+        const mystyle = {
+            color: "white",
+            border: "2px solid blue",
+            //backgroundColor: "DodgerBlue",
+            padding: "10px",
+            fontFamily: "Arial"
+        };
         return (
             <form onSubmit={this.mySubmitHandler}>
                 {header}
@@ -60,7 +69,22 @@ class MyForm extends React.Component {
                 </p>
                 <p>Add your comments below:</p>
                 <textarea value={this.state.description} />
-                <br/><br/>
+                <ol>
+                    <li>List 1</li>
+                    <li>List 1</li>
+                    <li>List 1</li>
+                </ol>
+                <table style={{backgroundColor: "lightblue",border:"2px solid black"}}>
+                    <tr>
+                        <th className={myformstyle.biggreen}>Name</th>
+                        <th className={myformstyle.biggreen}>Age</th>
+                    </tr>
+                    <tr>
+                        <td style={mystyle}>Ronmel Ross</td>
+                        <td style={mystyle}>30</td>
+                    </tr>
+                </table>
+                <br/>
                 <input type="submit" />
             </form>
         );
